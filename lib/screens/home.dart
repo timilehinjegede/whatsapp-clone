@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen>
       Container(),
       _buildChatFab(),
       _buildStatusFab(),
-      _buildChatFab(),
+      _buildCallFab(),
     ];
 
     _tabController.addListener(() {

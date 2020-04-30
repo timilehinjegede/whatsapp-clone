@@ -73,7 +73,7 @@ ThemeData darkThemeData() {
       color: AppColorsDark.gdColor,
     ),
     primaryIconTheme: baseTheme.primaryIconTheme.copyWith(
-      color: AppColorsDark.gdColor,
+      color: AppColorsDark.kWhite,
     ),
     accentIconTheme: baseTheme.accentIconTheme.copyWith(
       color: AppColorsDark.gdColor,
