@@ -12,6 +12,25 @@ class StatusItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ListTile(
+      leading: isMuted
+          ? Container(
+              height: 60,
+              width: 60,
+              decoration: BoxDecoration(
+                  color: Theme.of(context).accentColor,
+                  border: Border.all(
+                    width: 2,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  shape: BoxShape.circle),
+            )
+          : CircleAvatar(
+              radius: 30,
+              backgroundColor: Theme.of(context).accentColor,
+            ),
+      title: Text(contactName),
+      subtitle: Text(time),
+    );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/model/status_item.dart';
 import 'package:whatsapp_clone/utils/margin.dart';
 
 class StatusScreen extends StatelessWidget {
@@ -43,15 +44,22 @@ class StatusScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text('Recent updates'),
         ),
-        YMargin(20),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Text('Viewed updates'),
+        YMargin(5),
+        StatusItem(
+          contactName: 'Temi',
+          time: 'yesterday',
+          isMuted: true,
         ),
-        YMargin(20),
+        YMargin(10),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text('Muted updates'),
+        ),
+        YMargin(5),
+        StatusItem(
+          contactName: 'Temi',
+          time: 'yesterday',
+          isMuted: false,
         ),
       ],
     );
