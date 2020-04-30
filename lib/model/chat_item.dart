@@ -140,9 +140,7 @@ class ChatItem extends StatelessWidget {
                           child: Center(
                             child: Text(
                               '4',
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
+                          style: Theme.of(context).textTheme.bodyText1,
                             ),
                           ),
                         ),
@@ -166,9 +164,7 @@ class ChatItem extends StatelessWidget {
                       child: Center(
                         child: Text(
                           '4',
-                          style: TextStyle(
-                            fontSize: 12,
-                          ),
+                          style: Theme.of(context).textTheme.bodyText1,
                         ),
                       ),
                     ),
