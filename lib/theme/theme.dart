@@ -18,51 +18,63 @@ ThemeData lightThemeData() {
     brightness: Brightness.light,
     accentColor: AppColorsLight.gaColor,
     primaryColor: AppColorsLight.tColor,
+    primaryColorDark: AppColorsLight.tdColor,
     floatingActionButtonTheme: baseTheme.floatingActionButtonTheme.copyWith(
       backgroundColor: AppColorsLight.gaColor,
-      foregroundColor: AppColorsLight.gaColor,
+      foregroundColor: AppColorsLight.kWhite,
     ),
-    scaffoldBackgroundColor: AppColorsLight.kWhite,
-    backgroundColor: AppColorsLight.kWhite,
+    scaffoldBackgroundColor: AppColorsLight.bgColor,
+    backgroundColor: AppColorsLight.bgColor,
     iconTheme: baseTheme.iconTheme.copyWith(
       color: AppColorsLight.kWhite,
     ),
     primaryIconTheme: baseTheme.primaryIconTheme.copyWith(
       color: AppColorsLight.kWhite,
     ),
-    textTheme: baseTheme.textTheme.copyWith(),
+    accentIconTheme: baseTheme.accentIconTheme.copyWith(
+      color: AppColorsLight.kWhite,
+    ),
+    textTheme: baseTheme.textTheme.copyWith(
+      
+    ),
   );
 }
 
 // ===== ThemeData for dark theme =====
 ThemeData darkThemeData() {
-  final baseTheme = ThemeData.light();
+  final baseTheme = ThemeData.dark();
   return baseTheme.copyWith(
     tabBarTheme: baseTheme.tabBarTheme.copyWith(
       indicator: UnderlineTabIndicator(
         borderSide: BorderSide(
-          color: AppColorsLight.kWhite,
+          color: AppColorsDark.taColor,
           width: 2.0,
         ),
       ),
-      labelColor: AppColorsLight.kWhite,
-      unselectedLabelColor: AppColorsLight.tlColor,
+      labelColor: AppColorsDark.tColor,
+      unselectedLabelColor: AppColorsDark.gdColor,
     ),
-    brightness: Brightness.light,
-    accentColor: AppColorsLight.gaColor,
-    primaryColor: AppColorsLight.tColor,
+    brightness: Brightness.dark,
+    accentColor: AppColorsDark.taColor,
+    primaryColor: AppColorsDark.bGColor,
+    primaryColorDark: AppColorsDark.bgColor,
     floatingActionButtonTheme: baseTheme.floatingActionButtonTheme.copyWith(
-      backgroundColor: AppColorsLight.gaColor,
-      foregroundColor: AppColorsLight.gaColor,
+      backgroundColor: AppColorsDark.taColor,
+      foregroundColor: AppColorsDark.kWhite,
     ),
-    scaffoldBackgroundColor: AppColorsLight.kWhite,
-    backgroundColor: AppColorsLight.kWhite,
+    scaffoldBackgroundColor: AppColorsDark.bgColor,
+    backgroundColor: AppColorsDark.bgColor,
     iconTheme: baseTheme.iconTheme.copyWith(
-      color: AppColorsLight.kWhite,
+      color: AppColorsDark.gdColor,
     ),
     primaryIconTheme: baseTheme.primaryIconTheme.copyWith(
-      color: AppColorsLight.tlColor,
+      color: AppColorsDark.gdColor,
     ),
-    textTheme: baseTheme.textTheme.copyWith(),
+    accentIconTheme: baseTheme.accentIconTheme.copyWith(
+      color: AppColorsDark.gdColor,
+    ),
+    textTheme: baseTheme.textTheme.copyWith(
+      
+    ),
   );
 }

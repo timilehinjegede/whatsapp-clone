@@ -26,9 +26,13 @@ class AppColorsDark {
   static final bGColor = Colors.blueGrey[800];
   // taColor ==> teal accent color
   static final taColor = Colors.tealAccent[700];
+  // tColor ==> teal color
+  static final tColor = Colors.teal[400];
   // gdColor ==> grey darker color
   static final gdColor = Colors.grey[500];
   // gColor ==> grey color
   static final gColor = Colors.grey[400];
+  // color white
+  static final kWhite = Colors.white;
 }
 
