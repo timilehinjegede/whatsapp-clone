@@ -15,6 +15,8 @@ class AppColorsLight {
   static final gColor = Colors.grey[900];
   // glColor ==> grey lighter color
   static final glColor = Colors.grey[600];
+  // color white
+  static final kWhite = Colors.white;
 }
 
 class AppColorsDark {
