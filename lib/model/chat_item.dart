@@ -13,7 +13,6 @@ class ChatItem extends StatelessWidget {
   final bool isDelivered;
   final int numOfMessage;
   final String date;
-  final bool isPinned;
   final bool isGroup;
   final bool isMuted;
   final bool isDeleted;
@@ -29,7 +28,6 @@ class ChatItem extends StatelessWidget {
       this.isDelivered,
       this.numOfMessage,
       this.date,
-      this.isPinned,
       this.isGroup,
       this.isMuted,
       this.isDeleted});
@@ -64,12 +62,17 @@ class ChatItem extends StatelessWidget {
                           children: <Widget>[
                             Icon(
                               Icons.done_all,
-                              color: isRead
-                                  ? Colors.blue
-                                  : Theme.of(context).iconTheme,
+                              color: isRead ? Colors.blue : Colors.grey[500],
+                              size: 20,
                             ),
                             XMargin(5),
-                            Text(messsage),
+                            Flexible(
+                              child: Text(
+                                messsage,
+                                overflow: TextOverflow.ellipsis,
+                                softWrap: true,
+                              ),
+                            ),
                           ],
                         )
                       : Row(
@@ -78,75 +81,67 @@ class ChatItem extends StatelessWidget {
                               Icons.done,
                             ),
                             XMargin(5),
-                            Text(messsage),
+                            Flexible(
+                              child: Text(
+                                messsage,
+                                overflow: TextOverflow.ellipsis,
+                                softWrap: true,
+                              ),
+                            ),
                           ],
                         )
-                  : Text(
-                      isGroup
-                          ? Text(
-                              '$contactName: $messsage',
-                            )
-                          : messsage,
-                      overflow: TextOverflow.ellipsis,
+                  : Flexible(
+                      child: Text(
+                        isGroup
+                            ? Flexible(
+                                child: Text(
+                                  '$contactName: $messsage',
+                                  overflow: TextOverflow.ellipsis,
+                                  softWrap: true,
+                                ),
+                              )
+                            : messsage,
+                        overflow: TextOverflow.ellipsis,
+                        softWrap: true,
+                      ),
                     ),
       isThreeLine: false,
       trailing: isReceivedMessage
           ? isMuted
-              ? isPinned
-                  ? Column(
+              ? Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Text('yesterday',
+                    style: TextStyle(fontSize: 14,),
+                    ),
+                    YMargin(5),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
-                        Text('date here'),
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.volume_off),
-                            XMargin(5),
-                            Icon(
-                              Icons.edit,
-                              size: 16,
+                        Icon(Icons.volume_off, size: 18,),
+                        XMargin(5),
+                        Container(
+                          height: 18,
+                          width: 18,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(9),
+                            color: Theme.of(context).accentColor,
+                          ),
+                          child: Center(
+                            child: Text(
+                              '4',
+                              style: TextStyle(fontSize: 12,).copyWith(color: AppColorsLight.kWhite),
                             ),
-                            XMargin(5),
-                            Container(
-                              height: 15,
-                              width: 15,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15 / 2),
-                                color: AppColorsLight.tdColor,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '4',
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       ],
-                    )
-                  : Column(
-                      children: <Widget>[
-                        Text('date here'),
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.volume_off),
-                            XMargin(5),
-                            Container(
-                              height: 15,
-                              width: 15,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15 / 2),
-                                color: AppColorsLight.tdColor,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '4',
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    )
+                    ),
+                  ],
+                )
               : Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Text('date here'),
                     Container(
@@ -164,7 +159,7 @@ class ChatItem extends StatelessWidget {
                     ),
                   ],
                 )
-          : Text('date here'),
+          : Text('yesterday'),
     );
   }
 }
