@@ -37,11 +37,13 @@ class ChatItem extends StatelessWidget {
     return ListTile(
       leading: CircleAvatar(
         radius: 25,
+        backgroundColor: Theme.of(context).accentColor,
       ),
       title: Text(
         isGroup ? groupName : contactName,
       ),
-      subtitle: isReceivedMessage
+      subtitle: 
+      isReceivedMessage
           ? Text(
               messsage,
               overflow: TextOverflow.ellipsis,
@@ -112,15 +114,21 @@ class ChatItem extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
-                    Text('yesterday',
-                    style: TextStyle(fontSize: 14,),
+                    Text(
+                      'yesterday',
+                      style: TextStyle(
+                        fontSize: 14,
+                      ),
                     ),
                     YMargin(5),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
-                        Icon(Icons.volume_off, size: 18,),
+                        Icon(
+                          Icons.volume_off,
+                          size: 18,
+                        ),
                         XMargin(5),
                         Container(
                           height: 18,
@@ -132,7 +140,9 @@ class ChatItem extends StatelessWidget {
                           child: Center(
                             child: Text(
                               '4',
-                              style: TextStyle(fontSize: 12,).copyWith(color: AppColorsLight.kWhite),
+                              style: TextStyle(
+                                fontSize: 12,
+                              ),
                             ),
                           ),
                         ),
@@ -142,18 +152,23 @@ class ChatItem extends StatelessWidget {
                 )
               : Column(
                   mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
-                    Text('date here'),
+                    Text('yesterday'),
+                    YMargin(5),
                     Container(
-                      height: 15,
-                      width: 15,
+                      height: 18,
+                      width: 18,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15 / 2),
-                        color: AppColorsLight.tdColor,
+                        borderRadius: BorderRadius.circular(9),
+                        color: Theme.of(context).accentColor,
                       ),
                       child: Center(
                         child: Text(
                           '4',
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
                         ),
                       ),
                     ),
