@@ -63,8 +63,9 @@ class _HomeScreenState extends State<HomeScreen>
         bottom: TabBar(
           controller: _tabController,
           tabs: <Widget>[
-            Tab(
-              icon: Icon(Icons.camera_alt),
+            SizedBox(
+              width: 10,
+              child: Icon(Icons.camera_alt),
             ),
             Tab(
               text: 'Chats',
