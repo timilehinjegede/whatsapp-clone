@@ -12,29 +12,52 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin{
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   TabController _tabController;
+  int tabIndex = 1;
+  List<Widget> fabs;
 
-@override
+  @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _tabController = TabController(vsync: this, length: 4, initialIndex: 1);
   }
 
   @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    fabs = [
+      Container(),
+      _buildChatFab(),
+      _buildStatusFab(),
+      _buildChatFab(),
+    ];
+
+    _tabController.addListener(() {
+      tabIndex = _tabController.index;
+    });
+
+    print(tabIndex);
+
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(
           'Whatsapp',
         ),
         centerTitle: false,
         actions: <Widget>[
-          Icon(Icons.search),
-          XMargin(15),
+          IconButton(
+            onPressed: () {
+              Provider.of<ThemeProvider>(context, listen: false).changeTheme();
+            },
+            icon: Icon(Icons.wb_sunny),
+          ),
           Icon(Icons.more_vert),
         ],
         bottom: TabBar(
@@ -64,12 +87,43 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           CallsScreen(),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () =>
-            Provider.of<ThemeProvider>(context, listen: false).changeTheme(),
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes a
+      floatingActionButton: fabs.elementAt(tabIndex),
+    );
+  }
+
+  Widget _buildChatFab() {
+    return FloatingActionButton(
+      tooltip: 'New chat',
+      onPressed: null,
+      child: Icon(Icons.message),
+    );
+  }
+
+  Widget _buildStatusFab() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        FloatingActionButton(
+          onPressed: null,
+          tooltip: 'New text',
+          child: Icon(Icons.edit),
+          mini: true,
+        ),
+        YMargin(15),
+        FloatingActionButton(
+          onPressed: null,
+          tooltip: 'New status',
+          child: Icon(Icons.camera_alt),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCallFab() {
+    return FloatingActionButton(
+      tooltip: 'New call',
+      onPressed: null,
+      child: Icon(Icons.add_call),
     );
   }
 }
