@@ -71,7 +71,8 @@ class _MyHomePageState extends State<MyHomePage>
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(widget.title, 
+        ),
         centerTitle: false,
         actions: <Widget>[
           Icon(Icons.search),
@@ -122,6 +123,7 @@ class _MyHomePageState extends State<MyHomePage>
                 Text(
                   'You have pushed the button this many times:',
                 ),
+                
                 Text(
                   '$_counter',
                   style: Theme.of(context).textTheme.headline4,
@@ -152,6 +154,27 @@ class _MyHomePageState extends State<MyHomePage>
                 Text(
                   'You have pushed the button this many times:',
                 ),
+                YMargin(15),
+                Text(
+                  'You have pushed the button this many times:',
+                ),
+                YMargin(15),
+                Text(
+                  'You have pushed the button this many times:',
+                ),
+                YMargin(15),
+                Text(
+                  'You have pushed the button this many times:',
+                ),
+                YMargin(15),
+                Text(
+                  'You have pushed the button this many times:',
+                ),
+                YMargin(15),
+                Text(
+                  'You have pushed the button this many times:',
+                ),
+                YMargin(15),
                 Text(
                   '$_counter',
                   style: Theme.of(context).textTheme.headline4,

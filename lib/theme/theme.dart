@@ -34,8 +34,8 @@ ThemeData lightThemeData() {
     accentIconTheme: baseTheme.accentIconTheme.copyWith(
       color: AppColorsLight.kWhite,
     ),
-    textTheme: baseTheme.textTheme.copyWith(
-      
+    textTheme: baseTheme.textTheme.apply(
+      fontFamily: 'Roboto',
     ),
   );
 }
@@ -73,8 +73,8 @@ ThemeData darkThemeData() {
     accentIconTheme: baseTheme.accentIconTheme.copyWith(
       color: AppColorsDark.gdColor,
     ),
-    textTheme: baseTheme.textTheme.copyWith(
-      
+    textTheme: baseTheme.textTheme.apply(
+      fontFamily: 'Roboto',
     ),
   );
 }
