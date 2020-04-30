@@ -3,10 +3,10 @@ import 'package:whatsapp_clone/theme/theme.dart';
 
 enum ThemeType { Light, Dark }
 
-class ThemeModel extends ChangeNotifier {
-  // set the defaukt theme to dark theme 
+class ThemeProvider extends ChangeNotifier {
+  // set the defaukt theme to dark theme
   ThemeData currentTheme = darkThemeData();
-  // set the default enum selection to dark theme 
+  // set the default enum selection to dark theme
   ThemeType _themeType = ThemeType.Dark;
 
   // function that changes app theme based on user selection

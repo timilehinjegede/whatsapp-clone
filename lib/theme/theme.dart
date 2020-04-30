@@ -75,6 +75,6 @@ ThemeData darkThemeData() {
     ),
     textTheme: baseTheme.textTheme.apply(
       fontFamily: 'Roboto',
-    ),
+    )
   );
 }
