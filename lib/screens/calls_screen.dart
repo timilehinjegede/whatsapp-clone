@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/model/call.dart';
+import 'package:whatsapp_clone/components/call_item.dart';
 
 class CallsScreen extends StatelessWidget {
 
