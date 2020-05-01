@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/model/chat_item.dart';
+import 'package:whatsapp_clone/model/chat.dart';
 
 class ChatScreen extends StatelessWidget {
   @override

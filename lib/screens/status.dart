@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/model/status_item.dart';
+import 'package:whatsapp_clone/model/status.dart';
 import 'package:whatsapp_clone/utils/margin.dart';
 
 class StatusScreen extends StatelessWidget {
