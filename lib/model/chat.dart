@@ -1,9 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/styles/colors.dart';
-import 'package:whatsapp_clone/utils/margin.dart';
-
-class ChatItem extends StatelessWidget {
-  final AssetImage image;
+class Chat {
+  final String imagePath;
   final String contactName;
   final String groupName;
   final String messsage;
@@ -17,8 +13,8 @@ class ChatItem extends StatelessWidget {
   final bool isMuted;
   final bool isDeleted;
 
-  const ChatItem(
-      {this.image,
+  Chat(
+      {this.imagePath,
       this.contactName,
       this.groupName,
       this.messsage,
@@ -32,145 +28,156 @@ class ChatItem extends StatelessWidget {
       this.isMuted,
       this.isDeleted});
 
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: CircleAvatar(
-        radius: 25,
-        backgroundColor: Theme.of(context).accentColor,
-      ),
-      title: Text(
-        isGroup ? groupName : contactName,
-      ),
-      subtitle: 
-      isReceivedMessage
-          ? Text(
-              messsage,
-              overflow: TextOverflow.ellipsis,
-            )
-          : isDeleted
-              ? Row(
-                  children: <Widget>[
-                    Icon(Icons.error_outline),
-                    XMargin(5),
-                    Text(
-                      'This message was deleted',
-                    ),
-                  ],
-                )
-              : isSentMessage
-                  ? isDelivered
-                      ? Row(
-                          children: <Widget>[
-                            Icon(
-                              Icons.done_all,
-                              color: isRead ? Colors.blue : Colors.grey[500],
-                              size: 20,
-                            ),
-                            XMargin(5),
-                            Flexible(
-                              child: Text(
-                                messsage,
-                                overflow: TextOverflow.ellipsis,
-                                softWrap: true,
-                              ),
-                            ),
-                          ],
-                        )
-                      : Row(
-                          children: <Widget>[
-                            Icon(
-                              Icons.done,
-                            ),
-                            XMargin(5),
-                            Flexible(
-                              child: Text(
-                                messsage,
-                                overflow: TextOverflow.ellipsis,
-                                softWrap: true,
-                              ),
-                            ),
-                          ],
-                        )
-                  : Flexible(
-                      child: Text(
-                        isGroup
-                            ? Flexible(
-                                child: Text(
-                                  '$contactName: $messsage',
-                                  overflow: TextOverflow.ellipsis,
-                                  softWrap: true,
-                                ),
-                              )
-                            : messsage,
-                        overflow: TextOverflow.ellipsis,
-                        softWrap: true,
-                      ),
-                    ),
-      isThreeLine: false,
-      trailing: isReceivedMessage
-          ? isMuted
-              ? Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    Text(
-                      'yesterday',
-                      style: TextStyle(
-                        fontSize: 14,
-                      ),
-                    ),
-                    YMargin(5),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Icon(
-                          Icons.volume_off,
-                          size: 18,
-                        ),
-                        XMargin(5),
-                        Container(
-                          height: 18,
-                          width: 18,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(9),
-                            color: Theme.of(context).accentColor,
-                          ),
-                          child: Center(
-                            child: Text(
-                              '4',
-                          style: Theme.of(context).textTheme.bodyText1,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-              : Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    Text('yesterday'),
-                    YMargin(5),
-                    Container(
-                      height: 18,
-                      width: 18,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(9),
-                        color: Theme.of(context).accentColor,
-                      ),
-                      child: Center(
-                        child: Text(
-                          '4',
-                          style: Theme.of(context).textTheme.bodyText1,
-                        ),
-                      ),
-                    ),
-                  ],
-                )
-          : Text('yesterday'),
-    );
-  }
+  static final List<Chat> getAllChat = [
+    Chat(
+      imagePath: '',
+      contactName: 'Kunle',
+      messsage: 'Gee, Wassup?',
+      isSentMessage: false,
+      isReceivedMessage: true,
+      numOfMessage: 1,
+      isRead: false,
+      isDelivered: false,
+      isDeleted: false,
+      isMuted: false,
+      isGroup: false,
+      groupName: 'Flutter Lagos',
+      date: '07:57'
+    ),
+    Chat(
+        imagePath: '',
+        contactName: 'David',
+        messsage: 'Have you made the pull request?',
+        isSentMessage: true,
+        isReceivedMessage: false,
+        numOfMessage: 2,
+        isRead: false,
+        isDelivered: true,
+        isDeleted: false,
+        isMuted: false,
+        isGroup: false,
+        groupName: 'Flutter Lagos',
+        date: '5:01'
+    ),
+    Chat(
+        imagePath: '',
+        contactName: 'Victor',
+        messsage: 'Alright the, two it is?',
+        isSentMessage: true,
+        isReceivedMessage: false,
+        numOfMessage: 2,
+        isRead: true,
+        isDelivered: true,
+        isDeleted: false,
+        isMuted: true,
+        isGroup: false,
+        groupName: 'Flutter Lagos',
+        date: '02:57'
+    ),
+    Chat(
+        imagePath: '',
+        contactName: '+234 806 295 1693',
+        messsage: 'I\'m on that skipped my mind!',
+        isSentMessage: false,
+        isReceivedMessage: true,
+        numOfMessage: 1,
+        isRead: false,
+        isDelivered: false,
+        isDeleted: false,
+        isMuted: true,
+        isGroup: false,
+        groupName: 'Flutter Lagos',
+        date: 'Yesterday'
+    ),
+    Chat(
+        imagePath: '',
+        contactName: 'Kunle',
+        messsage: 'Gee, Wassup?',
+        isSentMessage: false,
+        isReceivedMessage: true,
+        numOfMessage: 2,
+        isRead: false,
+        isDelivered: false,
+        isDeleted: false,
+        isMuted: false,
+        isGroup: false,
+        groupName: 'Flutter Lagos',
+        date: 'Yesterday'
+    ),
+    Chat(
+        imagePath: '',
+        contactName: 'Kunle',
+        messsage: 'Gee, Wassup?',
+        isSentMessage: false,
+        isReceivedMessage: true,
+        numOfMessage: 2,
+        isRead: false,
+        isDelivered: false,
+        isDeleted: false,
+        isMuted: true,
+        isGroup: false,
+        groupName: 'Flutter Lagos',
+        date: 'Yesterday'
+    ),
+    Chat(
+        imagePath: '',
+        contactName: 'Wunmi',
+        messsage: 'Gee, Wassup?',
+        isSentMessage: false,
+        isReceivedMessage: true,
+        numOfMessage: 2,
+        isRead: false,
+        isDelivered: false,
+        isDeleted: false,
+        isMuted: false,
+        isGroup: false,
+        groupName: 'Flutter Lagos',
+        date: 'Yesterday'
+    ),
+    Chat(
+        imagePath: '',
+        contactName: 'Akin',
+        messsage: 'Gee, Wassup?',
+        isSentMessage: false,
+        isReceivedMessage: true,
+        numOfMessage: 2,
+        isRead: false,
+        isDelivered: false,
+        isDeleted: false,
+        isMuted: true,
+        isGroup: false,
+        groupName: 'Flutter Lagos',
+        date: '28/04/2020'
+    ),
+    Chat(
+        imagePath: '',
+        contactName: 'Tunde',
+        messsage: 'Yoo my man',
+        isSentMessage: false,
+        isReceivedMessage: true,
+        numOfMessage: 2,
+        isRead: false,
+        isDelivered: false,
+        isDeleted: true,
+        isMuted: false,
+        isGroup: false,
+        groupName: 'Flutter Lagos',
+        date: '28/04/2020'
+    ),
+    Chat(
+        imagePath: '',
+        contactName: 'Romeo',
+        messsage: 'What\'s good fam?',
+        isSentMessage: false,
+        isReceivedMessage: true,
+        numOfMessage: 5,
+        isRead: true,
+        isDelivered: false,
+        isDeleted: false,
+        isMuted: true,
+        isGroup: false,
+        groupName: 'Flutter Lagos',
+        date: '26/04/2020'
+    ),
+  ];
 }
