@@ -132,7 +132,7 @@ class Chat {
         isMuted: false,
         isGroup: false,
         groupName: 'Flutter Lagos',
-        date: 'Yesterday'
+        date: '29/04/2020'
     ),
     Chat(
         imagePath: '',
