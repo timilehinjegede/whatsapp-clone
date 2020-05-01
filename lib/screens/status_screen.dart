@@ -48,7 +48,20 @@ class StatusScreen extends StatelessWidget {
         StatusItem(
           contactName: 'Temi',
           time: 'yesterday',
-          isMuted: true,
+          isViewed: false,
+          isRecent: true,
+        ),
+        YMargin(10),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Text('Viewed updates'),
+        ),
+        YMargin(5),
+        StatusItem(
+          contactName: 'Temi',
+          time: 'yesterday',
+          isViewed: true,
+          isRecent: false,
         ),
         YMargin(10),
         Padding(
@@ -59,7 +72,8 @@ class StatusScreen extends StatelessWidget {
         StatusItem(
           contactName: 'Temi',
           time: 'yesterday',
-          isMuted: false,
+          isViewed: false,
+          isRecent: false,
         ),
       ],
     );

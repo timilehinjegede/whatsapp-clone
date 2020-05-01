@@ -32,7 +32,7 @@ ThemeData lightThemeData() {
       color: AppColorsLight.kWhite,
     ),
     accentIconTheme: baseTheme.accentIconTheme.copyWith(
-      color: AppColorsLight.kWhite,
+      color: AppColorsLight.glColor,
     ),
     textTheme: baseTheme.textTheme.apply(
       fontFamily: 'Roboto',
@@ -76,7 +76,7 @@ ThemeData darkThemeData() {
       color: AppColorsDark.kWhite,
     ),
     accentIconTheme: baseTheme.accentIconTheme.copyWith(
-      color: AppColorsDark.gdColor,
+      color: AppColorsDark.kWhite,
     ),
     textTheme: baseTheme.textTheme.apply(
       fontFamily: 'Roboto',
