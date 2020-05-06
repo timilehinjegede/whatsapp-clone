@@ -16,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
-  List<Widget> fabsList;
+  List<Widget> fabList;
 
   //value notifier
   ValueNotifier _valueNotifier = ValueNotifier(1);
@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    fabsList = [
+    fabList = [
       Container(),
       _buildChatFab(),
       _buildStatusFab(),
@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen>
       floatingActionButton: ValueListenableBuilder(
         valueListenable: _valueNotifier,
         builder: (context, value, child) {
-          return fabsList.elementAt(value);
+          return fabList.elementAt(value);
         },
       ),
     );
