@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsapp_clone/provider/theme_provider.dart';
 import 'package:whatsapp_clone/screens/calls_screen.dart';
@@ -116,7 +117,9 @@ class _HomeScreenState extends State<HomeScreen>
         ),
         YMargin(15),
         FloatingActionButton(
-          onPressed: null,
+          onPressed: (){
+            ImagePicker.pickImage(source: ImageSource.gallery);
+          },
           tooltip: 'New status',
           child: Icon(Icons.camera_alt),
         ),
