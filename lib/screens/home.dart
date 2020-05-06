@@ -15,13 +15,18 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
-  int tabIndex = 1;
-  List<Widget> fabs;
+  List<Widget> fabsList;
+
+  //value notifier
+  ValueNotifier _valueNotifier = ValueNotifier(1);
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: 4, initialIndex: 1);
+    _tabController = TabController(vsync: this, length: 4, initialIndex: 1)
+      ..addListener(() {
+        _valueNotifier.value = _tabController.index;
+      });
   }
 
   @override
@@ -32,18 +37,12 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    fabs = [
+    fabsList = [
       Container(),
       _buildChatFab(),
       _buildStatusFab(),
       _buildCallFab(),
     ];
-
-    _tabController.addListener(() {
-      tabIndex = _tabController.index;
-    });
-
-    print(tabIndex);
 
     return Scaffold(
       appBar: AppBar(
@@ -88,7 +87,12 @@ class _HomeScreenState extends State<HomeScreen>
           CallsScreen(),
         ],
       ),
-      floatingActionButton: fabs.elementAt(tabIndex),
+      floatingActionButton: ValueListenableBuilder(
+        valueListenable: _valueNotifier,
+        builder: (context, value, child) {
+          return fabsList.elementAt(value);
+        },
+      ),
     );
   }
 
