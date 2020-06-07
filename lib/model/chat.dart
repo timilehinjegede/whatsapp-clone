@@ -31,8 +31,8 @@ class Chat {
   static final List<Chat> getAllChat = [
     Chat(
       imagePath: '',
-      contactName: 'Kunle',
-      messsage: 'Gee, Wassup?',
+      contactName: 'Sola',
+      messsage: 'How far Wunmi ?',
       isSentMessage: false,
       isReceivedMessage: true,
       numOfMessage: 1,
@@ -106,11 +106,11 @@ class Chat {
     ),
     Chat(
         imagePath: '',
-        contactName: 'Kunle',
-        messsage: 'Gee, Wassup?',
+        contactName: 'Mopesola',
+        messsage: 'Gee, Wunmi talk say make I follow you yarn?',
         isSentMessage: false,
         isReceivedMessage: true,
-        numOfMessage: 2,
+        numOfMessage: 1,
         isRead: false,
         isDelivered: false,
         isDeleted: false,
@@ -122,10 +122,10 @@ class Chat {
     Chat(
         imagePath: '',
         contactName: 'Wunmi',
-        messsage: 'Gee, Wassup?',
+        messsage: 'I can\'t let go',
         isSentMessage: false,
         isReceivedMessage: true,
-        numOfMessage: 2,
+        numOfMessage: 23,
         isRead: false,
         isDelivered: false,
         isDeleted: false,
