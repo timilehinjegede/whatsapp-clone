@@ -21,7 +21,7 @@ This project is a starting point for a Flutter application.
 
 | Calls Screen                                         | Calls Screen                                         |
 | ----------------------------------------- | ----------------------------------------- |
-| <img src="screenshots/call_dark.png" width="400"> | <img src="screenshots/calls_light.png" width="400"> |
+| <img src="screenshots/calls_dark.png" width="400"> | <img src="screenshots/calls_light.png" width="400"> |
 
 
 A few resources to get you started if this is your first Flutter project:
